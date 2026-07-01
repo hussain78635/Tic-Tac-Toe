@@ -1,17 +1,30 @@
-# Tic-Tac-Toe
+# Currency Converter
 
-Simple browser Tic-Tac-Toe game (HTML, CSS, JS).
+A simple currency converter web app using live rates from a migrated CDN-based API.
 
-## Description
-Two players alternate O / X by clicking squares. The game detects wins and draws, shows a winner message, and includes Reset / New Game controls.
+## How to use
+
+1. Open `index.html` in your browser.
+2. Enter an amount.
+3. Choose the source currency and destination currency.
+4. Click **Get Exchange Rate**.
+
+## Fix applied
+
+- Updated `app.js` to use the migrated API endpoint:
+  - `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1`
+- Changed the lookup pattern to request `/currencies/{from}.json`.
+- Updated rate extraction to use `data[fromCurrency][toCurrency]`.
+- Added safer parsing for the amount input.
 
 ## Files
-- `index.html` — page and game layout
-- `style.css` — styles for board, controls, and message
-- `app.js` — game logic (init, click handlers, win detection, reset)
 
-## How to run
-Open `index.html` in any modern browser (double-click or via a local server).
+- `index.html` - UI layout and script includes
+- `codes.js` - currency-to-country code list
+- `app.js` - fetch logic, dropdown population, and conversion display
+- `style.css` - page styling
 
-## License
-This project is licensed under the MIT License — see `LICENSE`.
+## Notes
+
+- If the app is served locally, use a simple local server for best browser support.
+- If the API still fails, verify network/CORS settings and the latest CDN availability.
